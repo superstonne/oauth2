@@ -2,6 +2,7 @@ package com.nick.microservice.account.api;
 
 import com.nick.microservice.account.model.User;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +17,10 @@ public class UserController {
 
     @GetMapping("/api/user")
     public ResponseEntity<User> getUserInfo() {
-//        User user = (User) SecurityContextHolder.getContext()
-//                .getAuthentication().getPrincipal();
-//        String email = user.getName() + "@spring2go.com";
 
         User userInfo = new User();
-//        userInfo.setName(user.getName());
-//        userInfo.setMail(email);
+        userInfo.setName("user001");
+        userInfo.setMail("user001@email.com");
 
         return ResponseEntity.ok(userInfo);
     }
